@@ -1,9 +1,9 @@
-package academy.learnprogramming;
+package academy.learnprogramming.basic;
 
 import static java.lang.Math.PI;
 import static java.lang.Math.min;
 import static java.lang.System.out;
-import  static academy.learnprogramming.Config.*;
+import  static academy.learnprogramming.basic.Config.*;
 
 public class StaticImportsExample {
 

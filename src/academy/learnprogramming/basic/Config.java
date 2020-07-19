@@ -1,4 +1,4 @@
-package academy.learnprogramming;
+package academy.learnprogramming.basic;
 
 public class Config {
     public static final String NAME = "myName";
