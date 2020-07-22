@@ -31,6 +31,10 @@ interface CheckAnimal {
     boolean check(Animal animal);
 }
 
+interface AnotherCheck {
+    boolean check(Animal first, Animal second);
+}
+
 class CheckCanJump implements CheckAnimal {
 
     @Override
@@ -52,6 +56,28 @@ public class LambdaExpressions {
         print(animals, Animal::isCanSwing);
         print(animals, animal ->  !animal.isCanSwing());
 
+        print(animals, (Animal animal) -> {
+            return animal.isCanJump();
+        });
+
+        print(animals, (Animal animal) -> {
+//            Animal animal = new Animal("cat", true, false);
+            System.out.println("checking animal= " + animal.getType());
+            return animal.isCanJump();
+        });
+
+        Animal fish = animals.get(0);
+        Animal rabbit = animals.get(1);
+        Animal dog = animals.get(2);
+
+        print(fish, rabbit, (f, s) -> f.isCanJump() && s.isCanSwing());
+        print(fish, dog, ((first, second) -> first.isCanSwing() && second.isCanSwing()));
+
+
+    }
+
+    private static void print(Animal first, Animal second, AnotherCheck check) {
+        System.out.println(check.check(first, second));
     }
 
     private static void print(List<Animal> animals, CheckAnimal filter) {
